@@ -6,14 +6,13 @@
 #define	PN 100000
 #define WINX 800
 #define WINY 800
-#define	MAXFPS 30
+#define	MAXFPS 60
 
 #define ACTIVATE_ORBIT_TRACE false
 //FOR TRUE RESULT ACTIVATE THIS OPTION WHITE ONE PARTICULE (PN 1)//
 
-
-#define PL_MASS 100000000000000.0f
-#define PAR_MASS 24800.0001f
+#define PL_MASS 400000000000.0f
+#define PAR_MASS 64800.0001f
 
 #define SPEED 1.0f
 
@@ -69,9 +68,21 @@ int		main()
 			if (eve.type == sf::Event::KeyPressed)
 			{
 				if (eve.key.code == sf::Keyboard::Add)
-					viewZoom += 0.25f;
-				else if (eve.key.code == sf::Keyboard::Subtract)
 					viewZoom -= 0.25f;
+				else if (eve.key.code == sf::Keyboard::Subtract)
+					viewZoom += 0.25f;
+				else if (eve.key.code == sf::Keyboard::Space)
+				{
+					for (u32 i = 0; i < PN; i++)
+					{
+						particule[i]._px = rand() % WINX;
+						particule[i]._py = rand() % WINY;
+						particule[i]._mx = 0.0f;
+						particule[i]._my = 0.0f;
+						particule[i]._mass = PAR_MASS;
+						particule[i]._color = sf::Color(0.0f, 0.0f, 0.0f);
+					}		
+				}
 			}
 		}
 		
