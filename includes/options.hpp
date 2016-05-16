@@ -1,0 +1,26 @@
+#ifndef OPTIONS_HPP
+#define OPTIONS_HPP
+
+	#define PN 1
+	#define WINX 1280
+	#define WINY 720
+	#define MAXFPS 60
+	#define MPARPIXEL 1000000
+	#define COLORMOD 1.0f
+
+	#define ACTIVATE_ORBIT_TRACE true
+	//FOR TRUE RESULT ACTIVATE THIS OPTION WHITE ONE PARTICULE (PN 1)//
+	
+	#define INITIAL_SPEED_ACTIVATE true
+	#define INITIAL_SPEED 60
+	#define INITIAL_SPEED_DIV 10
+
+	//TEMPORARY OPTION (WHILE BE REMOVED IN NEW VERSION)
+	#define PCOLOR sf::Color(255, 255, 127)
+
+	#define PL_MASS  5.972 * pow(10.0f, 24.0f)
+	#define PAR_MASS 7.36 * pow(10.0f, 22.0f)
+
+	#define SPEED 1.0f
+
+#endif

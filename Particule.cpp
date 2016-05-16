@@ -36,30 +36,36 @@ Particule::~Particule()
 		
 }
 
-static float	pow2(float n)
+static double	pow2(double n)
 {
 	return (n * n);
 }
 
 
 
-void	Particule::updateToPosition(sf::Vector2f position, float mass, float s)
+void	Particule::updateToPosition(sf::Vector2f position, double mass, double s)
 {
-	float dcarre = pow2(position.x - _px) + pow2(position.y - _py);
-	float dist = sqrt(dcarre);
+	double dcarre = pow2(position.x * MPARPIXEL - _px * MPARPIXEL) + pow2(position.y * MPARPIXEL - _py * MPARPIXEL);
+	double dist = sqrt(dcarre);
 
-	if (dist <= 10)
+	if (dist <= 5.0f * MPARPIXEL)
+	{
+		if (dist == 0.0f)
+		{
+			_mx *= -1;
+			_my *= -1;
+		}
+		_px += _mx;
+		_py += _my;
 		return;
-
-	if (dist > 255)
-		_color = sf::Color(0, 255, 255);
-	else
-		_color = sf::Color(255 - dist, dist, dist);
-
-	float F = (G * _mass * mass) / dcarre;
-	float acel = (F / _mass);
-	float vx = acel * s;
-	float vy = acel * s;
+	}
+//color
+//color
+//color
+	double F = G * ((_mass * mass) / dcarre);
+	double acel = (F / _mass);
+	double vx = acel * s;
+	double vy = acel * s;
 	_mx += vx * (position.x - _px);
 	_my += vy * (position.y - _py);
 	_px += _mx;

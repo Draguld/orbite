@@ -24,6 +24,8 @@
 #include "std.hpp"
 #include "sfml.hpp"
 
+#include "options.hpp"
+
 #ifndef G
 #define G  6.67259E-11  //constante gravitationnelle
 #endif
@@ -34,12 +36,12 @@ class	Particule
 	Particule();
 	~Particule();
 
-	void		updateToPosition(sf::Vector2f position, float mass, float s);
-	float		_px;
-	float		_py;
-	float		_mx;
-	float		_my;
-	float		_mass;
+	void		updateToPosition(sf::Vector2f position, double mass, double s);
+	double		_px;
+	double		_py;
+	double		_mx;
+	double		_my;
+	double		_mass;
 	sf::Color	_color;
 };
 
